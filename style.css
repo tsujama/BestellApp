@@ -1,0 +1,61 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+header, footer {
+    height: 100px;
+    flex-shrink: 0;
+    background-color: #E76C1F;
+    color: white;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px;
+}
+
+.nav-logo {
+    margin-left: 32px;
+}
+
+.burger-menu-button {
+    font-size: 2rem;
+}
+
+.hero-banner-container {
+    width: 100dvw;
+    height: 500px;
+    overflow: hidden;
+}
+.hero-banner-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+main {
+    flex: 1 0 auto;
+}
+
+footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.footer-link-wrapper {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 50%;
+    font-size: 1.25rem;
+}
