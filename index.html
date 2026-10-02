@@ -4,17 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bestell App</title>
+    <script src="./assets/templates/template.js"></script>
+
     <link rel="stylesheet" href="style.css">
     <script src="https://kit.fontawesome.com/34f6182fea.js" crossorigin="anonymous"></script>
 
 </head>
-<body>
+<body onload="init()">
     <header>
         <nav>
             <div class="nav-logo">
                 <img src="./assets/img/icon.png">
             </div>
-            <div class="burger-menu-button">
+            <div class="burger-menu-button pointer">
                 <i class="fa-solid fa-bars"></i>
             </div>
         </nav>
@@ -41,63 +43,14 @@
             </div>
         </div>
     </header>
-    <main>
-        <section>
-            <div class="section-header">
-                <div class="img-wrapper">
-                    <img class="section-img" src="./assets/img/burger/burger_icon.png">
-                </div>
-                <div class="header-wrapper">
-                    <h2>Burger & Sandwiches</h2>
-                </div>
-            </div>
-            <div class="articles-wrapper">
-                <article>
-                    <div>
-                        <img src="./assets/img/burger/burger-made-from-vegetables-and-beef.jpg">
-                    </div>
-                    <div>
-                        <h3>Überschrift</h3>
-                        <p>Beschreibung</p>
-                    </div>
-                    <div class="price-and-button-wrapper">
-                        <p>Price</p>
-                        <button>Add to basket</button>
-                    </div>
-                </article>
-            </div>
-        </section>
-        <section>
-            <div class="section-header">
-                <div class="img-wrapper">
-                    <img class="section-img" src="./assets/img/pizza/pizza_icon.png">
-                </div>
-                <div class="header-wrapper">
-                    <h2>Pizza (30cm)</h2>
-                </div>
-            </div>
-            <div class="articles-wrapper">
-                <article>
+    <div class="content-layout">
+        <main id="content">
+        </main>
 
-                </article>
-            </div>
-        </section>
-        <section>
-            <div class="section-header">
-                <div class="img-wrapper">
-                    <img class="section-img" src="./assets/img/salad/salad_icon.png">
-                </div>
-                <div class="header-wrapper">
-                    <h2>Salad</h2>
-                </div>
-            </div>
-            <div class="articles-wrapper">
-                <article>
-
-                </article>
-            </div>
-        </section>
-    </main>
+        <aside id="basket-wrapper">
+            
+        </aside>
+    </div>
     <footer>
         <div class="footer-link-wrapper">
             <div>
@@ -111,7 +64,7 @@
             </div>
         </div>
     </footer>
-    <script src="script.js"></script>
-    <script src="food-db.js"></script>
+    <script src="./food-db.js"></script>
+    <script src="./script.js"></script>
 </body>
 </html>

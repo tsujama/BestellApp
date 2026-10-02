@@ -9,6 +9,10 @@ body {
     min-height: 100vh;
 }
 
+.pointer {
+    cursor: pointer;
+}
+
 header {
     height: auto;
     flex-shrink: 0;
@@ -32,7 +36,7 @@ nav {
 }
 
 .hero-banner-container {
-    width: 100dvw;
+    width: 100%;
     height: 500px;
     overflow: hidden;
 }
@@ -46,6 +50,7 @@ nav {
     display: flex;
     justify-content: center;
     color: black;
+    margin-bottom: 80px;
 }
 
 .burger-header-logo {
@@ -101,12 +106,30 @@ nav {
     font-size: 2rem;
 }
 
+.content-layout {
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
+main,
+aside {
+    grid-area: 1 / 1;
+}
+
 main {
-    flex: 1 0 auto;
+    width: 100%;
+    min-width: 0;
+}
+
+aside {
+    justify-self: end;
+    width: 500px;
+    min-width: 0;
+    z-index: 10;
 }
 
 section {
-    margin-bottom: 24px;
+    margin-bottom: 40px;
 }
 
 .section-header {
@@ -144,6 +167,7 @@ section {
     flex-direction: column;
     padding-left: 15%;
     justify-content: center;
+    gap: 24px;
 
     article {
         background-color: #FDEADC;
@@ -178,6 +202,8 @@ section {
             }
 
             button {
+                width: max-content;
+                height: 40px;
                 font-size: 1.25rem;
                 border-radius: 10px;
                 background-color: white;
@@ -203,4 +229,84 @@ footer {
     align-items: center;
     width: 50%;
     font-size: 1.25rem;
+}
+
+.basket {
+    background-color: #363534;
+    width: 500px;
+    height: 850px;
+    position: sticky;
+    top: 20px;
+    right: 100%;
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+    color: black;
+    font-size: 22px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .basket-infos-wrapper {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+        margin-top: 80px;
+    }
+
+    h2 {
+        font-size: 2rem;
+        color: #FDEADC;
+        display: flex;
+        justify-self: center;
+    }
+
+    .basket-article-wrapper {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 24px;
+        width: 340px;
+        height: 130px;
+        background-color: #FDEADC;
+        border-radius: 20px;
+        padding: 16px;
+    }
+
+    .amount-price {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .basket-pricecalc-wrapper {
+        color: white;
+        font-size: 20px;
+
+        .subtotal, .shipping, .total {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .line {
+            width: 100%;
+            height: 4px;
+            background-color: white;
+            border-radius: 20px;
+            margin: 12px 0;
+        }
+
+        .total {
+            font-size: 22px;
+        }
+    }
+
+    button {
+        width: 320px;
+        height: 64px;
+        border: none;
+        background-color: #E76C1F;
+        color: white;
+        font-size: 32px;
+        border-radius: 30px;
+        margin-top: 24px;
+    }
 }
