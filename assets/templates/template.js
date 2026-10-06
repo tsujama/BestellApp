@@ -17,18 +17,19 @@ function getSectionTemplate(i) {
 }
 
 function getArticleTemplate(i, j) {
+    let dish = menu[i].dishes[j];
     return `
         <article>
             <div>
-                <img src="${menu[i].dishes[j].img}">
+                <img src="${dish.img}">
             </div>
             <div>
-                <h3>${menu[i].dishes[j].name}</h3>
-                <p>${menu[i].dishes[j].description}</p>
+                <h3>${dish.name}</h3>
+                <p>${dish.description}</p>
             </div>
             <div class="price-and-button-wrapper">
-                <p>${menu[i].dishes[j].price.toFixed(2)} €</p>
-                <button onclick="addToBasket(${i}, ${j})" id="article-button" class="pointer">Add to basket</button>
+                <p>${dish.price.toFixed(2)} €</p>
+                <button onclick="addToBasket(${i}, ${j}, ${dish.id})" id="article-button${dish.id}" class="pointer">Add to basket</button>
             </div>
         </article>
     `;
@@ -44,7 +45,7 @@ function getBasketTemplate() {
                 <div id="basket-articles">
                 
                 </div>
-                <div class="basket-pricecalc-wrapper">
+                <div id="basket-pricecalc-wrapper" class="basket-pricecalc-wrapper">
                     <div class="subtotal">
                         <p>Subtotal</p>
                         <p id="subtotal-price">0,00  €</p>
@@ -60,23 +61,28 @@ function getBasketTemplate() {
                     </div>
                 </div>
             </div>
-            <button class="pointer">Buy now (0,00 €)</button>
+            <button onclick="buyMenu()" id="buy-now-button" class="pointer">Buy now (0,00 €)</button>
+        </div>
+
+         <div id="order-message">
+            Testbestellung erfolgreich aufgegeben!
         </div>
     `;
 }
 
-function getBasketArticlesTemplate(i, j, number) {
+function getBasketArticlesTemplate(i, j) {
+    let dish = menu[i].dishes[j];
     return `
-        <div class="basket-article-wrapper">
+        <div id="basket-article-wrapper${dish.id}" class="basket-article-wrapper">
             <div>
-                <h3>${menu[i].dishes[j].name}</h3>
+                <h3>${dish.name}</h3>
             </div>
             <div class="amount-price">
                 <div>
-                    <p><span class="pointer"><i class="fa-solid fa-trash"></i></span> <span id="amount${j}">1</span> <span onclick="count(${j})" class="pointer">+</span></p>
+                    <p><span onclick="countDown(${dish.id})" id="amount-minus${dish.id}" class="pointer"><i class="fa-solid fa-trash"></i></span> <span id="amount${dish.id}">1</span> <span onclick="countUp(${dish.id})" class="pointer">+</span></p>
                 </div>
                 <div>
-                    <p>${menu[i].dishes[j].price.toFixed(2)} €</p>
+                    <p>${dish.price.toFixed(2)} €</p>
                 </div>
             </div>
         </div>
